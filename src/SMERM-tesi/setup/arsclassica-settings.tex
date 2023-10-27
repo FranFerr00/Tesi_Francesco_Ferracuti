@@ -1,0 +1,140 @@
+% !TEX TS-program = pdflatex
+% !TEX root = tesi.tex
+
+\documentclass[
+  a4paper,
+  twoside,
+  openright,
+  titlepage,
+  headinclude,
+  footinclude,
+  BCOR5mm,
+  numbers=noenddot,
+  cleardoublepage=empty,
+  tablecaptionabove
+]{scrreprt}
+
+\usepackage[showframe]{geometry}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,italian]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{indentfirst}
+\usepackage[
+  backend=biber,
+  style=philosophy-modern,
+  hyperref
+]{biblatex}
+\usepackage{chngpage}
+\usepackage{calc}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{lipsum}
+\usepackage{shapepar}
+\usepackage{pifont}
+\usepackage[
+  eulerchapternumbers,
+  subfig,
+  beramono,
+  eulermath,
+  pdfspacing,
+  listings
+]{classicthesis}
+\usepackage{arsclassica}
+\usepackage{tikz}
+
+% FONT UTILIZZATO DAL CONSERVATORIO
+%\usepackage{cinzel} %% Option 'defaultfam'
+%% only if the base font of the document is to be sans serif
+%\usepackage[T1]{fontenc}
+%\renewcommand*\oldstylenums[1]{{\fontfamily{Montserrat-TOsF}\selectfont #1}}
+
+\usepackage{ccicons}
+
+\usepackage{todonotes}
+\usepackage{setspace}
+% Using \doublespacing in the preamble
+% changes text to double line spacing
+\onehalfspacing
+
+% ********************************************************************
+% Personal commands
+% ********************************************************************
+\DeclareRobustCommand*{\clsname}[1]{{\normalfont\sffamily#1}}
+\DeclareRobustCommand*{\pkgname}[1]{{\normalfont\sffamily#1}}
+\DeclareRobustCommand*{\optname}[1]{{\normalfont\ttfamily#1}}
+\DeclareRobustCommand*{\cmdname}[1]{\mbox{\lstinline[basicstyle=\normalsize\ttfamily]!\\#1!}}
+
+\DeclareRobustCommand*{\classicthesis}{Classic\-Thesis}
+\DeclareRobustCommand*{\arsclassica}{{\normalfont\sffamily ArsClassica}}
+
+% ********************************************************************
+% Hyper-references
+% ********************************************************************
+\newcommand{\mail}[1]{\href{mailto:#1}{\texttt{#1}}}
+
+
+% ********************************************************************
+% Graphics
+% ********************************************************************
+\graphicspath{{Graphics/}}
+
+
+% ********************************************************************
+% Code
+% ********************************************************************
+\definecolor{lightergray}{gray}{0.99}
+\definecolor{bbari}{cmyk}{1,0.44,0,0.28}
+
+\lstset{language=[LaTeX]Tex,
+     keywordstyle=\color{RoyalBlue},
+     basicstyle=\small\ttfamily,
+     commentstyle=\color{Emerald}\ttfamily,
+     stringstyle=\rmfamily,
+     numberstyle=\scriptsize,
+     showstringspaces=false,
+     breaklines=true,
+     frame=lines,
+     backgroundcolor=\color{lightergray},
+     flexiblecolumns=true,
+     escapeinside={�*}{*�},
+     firstnumber=last,
+}
+
+\newcommand{\meta}[1]{$\langle${\normalfont\itshape#1}$\rangle$}
+
+\lstset{	morekeywords=%
+    {ProvidesPackage,RequirePackage,areaset,ifthenelse,%
+     chapterNumber,undefined,boolean,DeclareRobustCommand,%
+     spacedallcaps,textssc,MakeTextUppercase,lehead,%
+     microtypesetup,textls,spacedlowsmallcaps,MakeTextLowercase,%
+     sodef,allcapsspacing,lowsmallcapsspacing,thesection,%
+     color,headmark,rohead,headfont,pnumfont,titleformat,%
+     part,partname,thepart,chapter,thechapter,titlerule,%
+     subsection,thesubsection,subsubsection,thesubsubsection,%
+     paragraph,theparagraph,descriptionlabel,titlespacing,%
+     formatchapter,textcolor,clearscrplain,rofoot,labelitemi,
+     captionsetup,hypersetup}}
+
+\lstnewenvironment{code}%
+   {\setkeys{lst}{columns=fullflexible,keepspaces=true}%
+   \lstset{basicstyle=\small\ttfamily}}{}
+
+
+% ********************************************************************
+% Bibliography
+% ********************************************************************
+\addbibresource{Bibliography.bib}
+
+\defbibheading{bibliography}{%
+\cleardoublepage
+\manualmark
+\phantomsection
+\addcontentsline{toc}{chapter}{\tocEntry{\bibname}}
+\chapter*{\bibname\markboth{\spacedlowsmallcaps{\bibname}}
+{\spacedlowsmallcaps{\bibname}}}}
+
+\renewcommand*{\nameyeardelim}{\addcomma\space}

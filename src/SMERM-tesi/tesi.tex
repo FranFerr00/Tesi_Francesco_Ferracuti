@@ -1,0 +1,21 @@
+% !TEX TS-program = pdflatex
+% !TEX root = tesi.tex
+
+\input{setup/arsclassica-settings}
+\input{_custom-settings}
+
+\begin{document}
+\pagenumbering{roman}
+\pagestyle{plain}
+\input{FrontBackMatter/Titlepage}
+\input{FrontBackMatter/Titleback}
+\cleardoublepage
+\input{FrontBackMatter/Acknowledgements}
+\pagestyle{scrheadings}
+\input{FrontBackMatter/Contents}
+\cleardoublepage
+\pagenumbering{arabic}
+\input{_capitoli.tex}
+\clearpage
+\input{FrontBackMatter/Bibliography}
+\end{document}
